@@ -6,7 +6,7 @@ export class Newsitem extends Component {
     return (
       <>
         <div className="my-3">
-          <div className="card" style={{ width: "18rem" }}>
+          <div className="card">
             <img src={imageurl} className="card-img-top" alt="..." />
             <div className="card-body">
               <h5 className="card-title">{title}...</h5>
@@ -15,6 +15,7 @@ export class Newsitem extends Component {
                 href={newsurl}
                 target="break"
                 className="btn btn-primary btn-sm "
+                rel= 'noreferrer'
               >
                 Red More
               </a>

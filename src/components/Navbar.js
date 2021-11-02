@@ -1,17 +1,20 @@
 import React, { Component } from "react";
+import {
+  Link
+} from "react-router-dom";
 
 export class Navbar extends Component {
   render() {
     return (
       <>
         <nav
-          className="navbar navbar-expand-lg navbar-light bg-light"
+          className="navbar navbar-expand-lg navbar-dark bg-dark"
           style={{ position: "sticky", top: "0px", zIndex: "10" }}
         >
           <div className="container-fluid">
-            <a className="navbar-brand" href="/">
+            <Link className="navbar-brand" to="/">
               NewsToday
-            </a>
+            </Link>
             <button
               className="navbar-toggler"
               type="button"
@@ -29,15 +32,31 @@ export class Navbar extends Component {
             >
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
-                  <a className="nav-link active" aria-current="page" href="/">
+                  <Link className="nav-link active" aria-current="page" to="/">
                     Home
-                  </a>
+                  </Link>
                 </li>
+
+                <li className="nav-item dropdown">
+                    <Link className="nav-link dropdown-toggle" to='/' id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Category
+                    </Link>
+                    <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><Link className="dropdown-item" to='/business'>Business</Link></li>
+                      <li><Link className="dropdown-item" to='/entertainment'>Entertainment</Link></li>
+                      <li><Link className="dropdown-item" to='/general'>General</Link></li>
+                      <li><Link className="dropdown-item" to='/health'>Health</Link></li>
+                      <li><Link className="dropdown-item" to='/science'>Science</Link></li>
+                      <li><Link className="dropdown-item" to='/sports'>Sports</Link></li>
+                      <li><Link className="dropdown-item" to='/technology'>Technology</Link></li>
+                    </ul>
+                  </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="/about">
+                  <Link className="nav-link" to="/about">
                     About
-                  </a>
+                  </Link>
                 </li>
+
               </ul>
             </div>
           </div>
