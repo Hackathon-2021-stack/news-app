@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Newsitem from "./Newsitem";
 
 export class News extends Component {
-
   constructor() {
     super();
     this.state = {
@@ -31,11 +30,7 @@ export class News extends Component {
                 <div className="col-md-4" key={element.url}>
                   <Newsitem
                     title={element.title ? element.title : ""}
-                    description={
-                      element.description
-                        ? element.description
-                        : ""
-                    }
+                    description={element.description ? element.description : ""}
                     imageurl={
                       element.urlToImage
                         ? element.urlToImage

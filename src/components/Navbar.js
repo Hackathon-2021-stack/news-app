@@ -4,7 +4,10 @@ export class Navbar extends Component {
   render() {
     return (
       <>
-        <nav className="navbar navbar-expand-lg navbar-light bg-light" style={{position: "sticky", top: '0px', zIndex: '10'}}>
+        <nav
+          className="navbar navbar-expand-lg navbar-light bg-light"
+          style={{ position: "sticky", top: "0px", zIndex: "10" }}
+        >
           <div className="container-fluid">
             <a className="navbar-brand" href="/">
               NewsToday
