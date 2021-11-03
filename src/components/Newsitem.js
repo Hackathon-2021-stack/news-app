@@ -2,15 +2,20 @@ import React, { Component } from "react";
 
 export class Newsitem extends Component {
   render() {
-    let { title, description, imageurl, newsurl, author, publishedAt,source } =
+    let { title, description, imageurl, newsurl, author, publishedAt, source } =
       this.props;
     return (
       <>
-        <div className="my-3 text-center">
+        <div className="my-3 ">
           <div className="card">
-            <span style={{zIndex: '2', left: '90%'}} className="position-absolute top-0 translate-middle badge rounded-pill bg-danger">
-              {source}
-            </span>
+            <div style={{display:"flex",justifyContent:"flex-end",position:"absolute",right:'0px'}}>
+              <span
+                style={{ zIndex: "2", left: "90%" }}
+                className="badge  bg-danger"
+              >
+                {source}
+              </span>
+            </div>
             <img src={imageurl} className="card-img-top" alt="..." />
             <div className="card-body ">
               <h5 className="card-title">{title}...</h5>
