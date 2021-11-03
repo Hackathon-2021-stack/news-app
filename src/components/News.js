@@ -7,24 +7,31 @@ export class News extends Component {
 
   static defaultProps={
     country: 'stranger',
-    pageSize: '9',
+    pageSize: '15',
     category: 'general'
   }
 
   static propTypes={
     country: PropTypes.string,
-    pageSize: PropTypes.string,
+    // pageSize: PropTypes.string,
     category: PropTypes.string,
   }
 
-  constructor() {
-    super();
+  cap=(word)=>{
+    return word.charAt(0).toUpperCase()+word.slice(1)
+  }
+
+  constructor(props) {
+    super(props);
     this.state = {
       articles: [],
       loading: false,
       page: 1
     };
+    document.title=`NewsToday -${this.cap(this.props.category)}`
   }
+
+  
 
   async componentDidMount() {
     let url =
@@ -69,7 +76,7 @@ export class News extends Component {
     return (
       <>
         <div className="container my-3 mx-3">
-          <h1 className='text-center' style={{margin:'25px 0px'}}>NewsToday -Top Headlines</h1>
+          <h1 className='text-center' style={{margin:'25px 0px'}}>NewsToday -Top {this.cap(this.props.category)} Headlines</h1>
           {this.state.loading&&<Spinner/>}
 
           <div className="row">
@@ -85,6 +92,9 @@ export class News extends Component {
                         : "https://i0.wp.com/www.eastmojo.com/wp-content/uploads/2021/11/download-34.jpg?fit=1200%2C675&ssl=1"
                     }
                     newsurl={element.url ? element.url : "/"}
+                    publishedAt={element.publishedAt}
+                    author={!element.author?'Unknown':element.author}
+                    source={!element.source.name?'Unknown':element.source.name}
                   />
                 </div>
               );
